@@ -47,11 +47,11 @@ class CommunitiesPage(QWidget):
         communication = self.communication_combo.currentText()
 
         recommendations = {
-            "Технологии": ["Tech Enthusiasts", "AI Innovators"],
-            "Искусство": ["Art Creators", "Street Artists"],
-            "Спорт": ["Fitness Club", "Running Community"],
-            "Музыка": ["Music Lovers", "Indie Band Fans"],
-            "Литература": ["Book Club", "Poetry Circle"]
+            "Технологии": ["Техноэнтузиасты", "Инноваторы ИИ"],
+            "Искусство": ["Творцы искусства", "Уличные художники"],
+            "Спорт": ["Фитнес-клуб", "Беговое сообщество"],
+            "Музыка": ["Меломаны", "Фанаты инди-групп"],
+            "Литература": ["Книжный клуб", "Круг поэзии"]
         }
 
         communities = recommendations.get(interest, ["Неизвестная категория"])
