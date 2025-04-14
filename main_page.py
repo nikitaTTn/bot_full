@@ -10,7 +10,6 @@ class MainPage(QWidget):
     def init_ui(self):
         layout = QVBoxLayout()
 
-        # Описание функционала в Markdown
         description = QTextEdit()
         description.setReadOnly(True)
         description.setMarkdown("""
@@ -25,12 +24,10 @@ class MainPage(QWidget):
         description.setAlignment(Qt.AlignCenter)
         layout.addWidget(description)
 
-        # Кнопка для перехода к сообществам
         communities_button = QPushButton("Найти сообщества")
         communities_button.clicked.connect(lambda: self.parent.show_page(1))
         layout.addWidget(communities_button)
 
-        # Кнопка для перехода к мерчу
         merch_button = QPushButton("Купить мерч")
         merch_button.clicked.connect(lambda: self.parent.show_page(2))
         layout.addWidget(merch_button)

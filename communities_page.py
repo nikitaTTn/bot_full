@@ -10,38 +10,31 @@ class CommunitiesPage(QWidget):
     def init_ui(self):
         layout = QVBoxLayout()
 
-        # Форма для ввода предпочтений
         form_layout = QFormLayout()
 
-        # Вопрос 1: Интересы
         self.interest_combo = QComboBox()
         self.interest_combo.addItems(["Технологии", "Искусство", "Спорт", "Музыка", "Литература"])
         form_layout.addRow("Что вас интересует?", self.interest_combo)
 
-        # Вопрос 2: Настроение
         self.mood_combo = QComboBox()
         self.mood_combo.addItems(["Энергичное", "Спокойное", "Творческое", "Мотивационное"])
         form_layout.addRow("Какое у вас настроение?", self.mood_combo)
 
-        # Вопрос 3: Тип общения
         self.communication_combo = QComboBox()
         self.communication_combo.addItems(["Онлайн", "Офлайн", "Смешанное"])
         form_layout.addRow("Как предпочитаете общаться?", self.communication_combo)
 
         layout.addLayout(form_layout)
 
-        # Кнопка анализа
         analyze_button = QPushButton("Найти сообщества")
         analyze_button.clicked.connect(self.analyze_preferences)
         layout.addWidget(analyze_button)
 
-        # Поле для результата
         self.result_display = QTextEdit()
         self.result_display.setReadOnly(True)
         self.result_display.setAlignment(Qt.AlignCenter)
         layout.addWidget(self.result_display)
 
-        # Кнопка возврата
         back_button = QPushButton("На главную")
         back_button.clicked.connect(lambda: self.parent.show_page(0))
         layout.addWidget(back_button)
@@ -53,7 +46,6 @@ class CommunitiesPage(QWidget):
         mood = self.mood_combo.currentText()
         communication = self.communication_combo.currentText()
 
-        # Простая логика подбора сообществ
         recommendations = {
             "Технологии": ["Tech Enthusiasts", "AI Innovators"],
             "Искусство": ["Art Creators", "Street Artists"],

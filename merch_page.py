@@ -17,12 +17,10 @@ class MerchPage(QWidget):
     def init_ui(self):
         layout = QVBoxLayout()
 
-        # Заголовок
         title = QLabel("Выберите товары:")
         title.setAlignment(Qt.AlignCenter)
         layout.addWidget(title)
 
-        # Список товаров с чекбоксами
         self.checkboxes = {}
         for item, price in self.items.items():
             checkbox = QCheckBox(f"{item} - {price} руб.")
@@ -30,14 +28,12 @@ class MerchPage(QWidget):
             self.checkboxes[item] = checkbox
             layout.addWidget(checkbox)
 
-        # Поле для отображения суммы
         self.total_display = QTextEdit()
         self.total_display.setReadOnly(True)
         self.total_display.setMarkdown("## Сумма к оплате: 0 руб.")
         self.total_display.setAlignment(Qt.AlignCenter)
         layout.addWidget(self.total_display)
 
-        # Кнопка возврата
         back_button = QPushButton("На главную")
         back_button.clicked.connect(lambda: self.parent.show_page(0))
         layout.addWidget(back_button)
